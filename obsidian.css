@@ -4,46 +4,43 @@
 
 /* ADJUSTABLE CSS */
 /* Wave design at the bottom */
-.workspace:before{
-	content:"";
-	position:absolute;
-	height:300px;
-	width:100%;
-	bottom:-73px;
-	left:-23%;
-	background-image:url(https://raw.githubusercontent.com/LosEcher/Obsidian-Theme-lsWave/main/wave.svg);
-	background-size:100% 100%;
-	transform:rotateZ(180deg);
-	opacity:0.7;
-}
-
+.workspace{
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  .workspace:before{
+      content: "";
+      position: absolute;
+      left: 50%;
+      min-width: 300vw;
+      min-height: 300vw;
+      background-color: #454C5C;
+      animation-name: rotate;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      bottom: 15vh;
+      border-radius: 45%;
+      animation-duration: 10s;
+      opacity: .5;
+  }
   
-  /* Animation */
   
-  .parallax > use {
-    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
-  }
-  .parallax > use:nth-child(1) {
-    animation-delay: -2s;
-    animation-duration: 7s;
-  }
-  .parallax > use:nth-child(2) {
-    animation-delay: -3s;
-    animation-duration: 10s;
-  }
-  .parallax > use:nth-child(3) {
-    animation-delay: -4s;
-    animation-duration: 13s;
-  }
-  .parallax > use:nth-child(4) {
-    animation-delay: -5s;
-    animation-duration: 20s;
-  }
-  @keyframes move-forever {
-    0% {
-     transform: translate3d(-90px,0,0);
+    
+    /* Animation */
+    @keyframes rotate {
+      0% {transform: translate(-50%, 0) rotateZ(0deg);}
+      50% {transform: translate(-50%, -2%) rotateZ(180deg);}
+      100% {transform: translate(-50%, 0%) rotateZ(360deg);}
     }
-    100% { 
-      transform: translate3d(85px,0,0);
-    }
+  
+    /* ADJUSTABLE CSS */
+  /* Removing background to let space for wave design underneath */
+  /* However, this will cost readibility during translucent mode */
+  .workspace-split,
+  .workspace-tabs,
+  .workspace-tabs .workspace-leaf,
+  .workspace-split.mod-root,
+  .mod-left-split .workspace-leaf-content,
+  .mod-right-split .workspace-leaf-content{
+      background:none;
   }
