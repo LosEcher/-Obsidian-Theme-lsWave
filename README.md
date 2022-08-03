@@ -1,2 +1,2 @@
-# -Obsidian-Theme-lsWave
+# Obsidian-Theme-lsWave
 a Obsidian Theme
